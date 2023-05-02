@@ -16,51 +16,88 @@ html {
 }
 
 .app {
-  @layer relative w-full h-screen overflow-hidden;
+  @apply relative w-full h-screen overflow-hidden;
 }
 
 .home {
-  @layer w-fit xl: h-full flex xl:justify-between justify-start items-start flex-col xl:py-8 xl:px-36 sm:p-8 p-6 max-xl:gap-7 absolute z-10;
+  @apply w-fit flex flex-col items-start absolute z-10;
+  
+  @screen xl {
+    height: 100%;
+    justify-content: space-between;
+    justify-items: start;
+    padding: 8rem 36rem;
+  }
+
+  padding: 2rem;
+  gap: 1.75rem;
 }
 
 .home-content {
-  @layer flex-1 xl: justify-center justify-start flex flex-col gap-10;
+  @apply flex-1 flex flex-col gap-10 justify-start;
+  
+  @screen xl {
+    justify-content: center;
+  }
 }
 
 .head-text {
-  @layer xl: text-[10rem] text-[6rem] xl:leading-[11rem] leading-[7rem] font-black text-black;
+  @apply text-4xl font-bold;
+  
+  @screen xl {
+    font-size: 10rem;
+    line-height: 11rem;
+  }
+
+  font-size: 6rem;
+  line-height: 7rem;
 }
 
 .download-btn {
-  @layer w-14 h-14 flex justify-center items-center rounded-full glassmorphism cursor-pointer outline-none;
+  @apply w-14 h-14 flex justify-center items-center rounded-full glassmorphism cursor-pointer outline-none;
 }
 
 .editortabs-container {
-  @layer glassmorphism w-16 border-[2px] rounded-lg flex flex-col justify-center items-center ml-1 py-4 gap-4;
+  @apply glassmorphism w-16 border-[2px] rounded-lg flex flex-col justify-center items-center ml-1 py-4 gap-4;
 }
 
 .filtertabs-container {
-  @layer absolute z-10 bottom-5 right-0 left-0 w-full flex justify-center items-center flex-wrap gap-4;
+  @apply absolute z-10 bottom-5 right-0 left-0 w-full flex justify-center items-center flex-wrap gap-4;
 }
 
 .aipicker-container {
-  @layer absolute left-full ml-3 glassmorphism p-3 w-[195px] h-[220px] rounded-md flex flex-col gap-4;
+  @apply absolute left-full ml-3 glassmorphism p-3 w-[195px] h-[220px] rounded-md flex flex-col gap-4;
 }
 
 .aipicker-textarea {
-  @layer w-full bg-transparent text-sm border border-gray-300 p-2 outline-none flex-1;
+  @apply w-full bg-transparent text-sm border border-gray-300 p-2 outline-none flex-1;
 }
 
 .filepicker-container {
-  @layer absolute left-full ml-3 glassmorphism p-3 w-[195px] h-[220px] flex flex-col rounded-md;
+  @apply absolute left-full ml-3 glassmorphism p-3 w-[195px] h-[220px] flex flex-col rounded-md;
 }
 
 .filepicker-label {
-  @layer border border-gray-300 py-1.5 px-2 rounded-md shadow-sm text-xs text-gray-700 focus: outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500 cursor-pointer w-fit;
+  @apply border border-gray-300 py-1.5 px-2 rounded-md shadow-sm text-xs text-gray-700 outline-none ring-blue-500 border-blue-500 cursor-pointer w-fit;
+  
+  @screen sm {
+    padding: 1rem;
+    font-size: 1rem;
+  }
+
+  @screen md {
+    padding: 1.5rem;
+    font-size: 1.1rem;
+  }
+
+  @screen lg {
+    padding: 2rem;
+    font-size: 1.2rem;
+  }
 }
 
 .tab-btn {
-  @layer w-14 h-14 flex justify-center items-center cursor-pointer select-none;
+  @apply w-14 h-14 flex justify-center items-center cursor-pointer select-none;
 }
 
 .glassmorphism {
