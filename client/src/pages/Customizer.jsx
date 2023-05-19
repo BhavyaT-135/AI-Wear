@@ -18,7 +18,7 @@ const Customizer = () => {
 
   const [prompt, setPrompt] = useState('')
 
-  const [genratingImg, setGenratingImg] = useState(false)
+  const [generatingImg, setGeneratingImg] = useState(false)
 
   const [activeEditorTab, setActiveEditorTab] = useState('')
 
@@ -39,9 +39,26 @@ const Customizer = () => {
           readFile={readFile}
         />
       case "aipicker":
-        return <AI_Picker />
+        return <AI_Picker 
+          prompt={prompt}
+          setPrompt={setPrompt}
+          generatingImg={generatingImg}
+          handleSubmit={handleSubmit}
+        />
       default:
         return null;
+    }
+  }
+
+  const handleSubmit = async (type) => {
+    if (!prompt) return alert("Please enter a prompt!")
+    try {
+      // Call our backend to generate an ai image!
+    } catch (error) {
+      alert(error)
+    } finally {
+      setGeneratingImg(false);
+      setActiveEditorTab("");
     }
   }
 
@@ -122,11 +139,11 @@ const Customizer = () => {
             {...slideAnimation('up')}
           >
             {FilterTabs.map((tab) => (
-              <Tab 
+              <Tab
                 key={tab.name}
                 tab={tab}
                 isFilterTab
-                isActiveTab= {activeEditorTab[tab.name]}
+                isActiveTab={activeFilterTab[tab.name]}
                 handleClick={() => handleActiveFilterTab(tab.name)}
               />
             ))}
